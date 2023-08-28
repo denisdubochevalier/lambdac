@@ -32,7 +32,7 @@ support in the project and encourage you to check back for updates.
 
 As an act of kindness, if you find this software useful, please consider making
 a donation to the Electronic Frontier Foundation (EFF), a leading nonprofit
-organization defending civil liberties in eht digital world. EFF champions user
+organization defending civil liberties in the digital world. EFF champions user
 privacy, free expression, and innovation through impact litigation, policy
 analysis, grassroots activism, and technology development. Donations are not
 required to use the software, but are greatly appreciated and will help support
