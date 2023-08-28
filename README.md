@@ -1,6 +1,6 @@
 # lambdac
 
-[![License: BSD 2-Clause + Charity](https://img.shields.io/badge/License-BSD%202--Clause%20%2B%20Charity-blue)](blob/main/LICENSE)
+[![License: BSD 2-Clause + Charity](https://img.shields.io/badge/License-BSD%202--Clause%20%2B%20Charity-blue)](LICENSE)
 ![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/denisdubochevalier/lambdac)
 [![GoDoc](https://godoc.org/github.com/denisdubochevalier/lambdac?status.svg)](https://pkg.go.dev/github.com/denisdubochevalier/lambdac)
 ![Build Status](https://github.com/denisdubochevalier/lambdac/actions/workflows/go.yml/badge.svg)
@@ -103,10 +103,9 @@ Contributions are welcome! Please the following these steps to contribute:
 5. Submit a pull request.
 
 For more detailed contributing guidelines, please refer to the
-[CONTRIBUTING.md](/blob/main/CONTRIBUTING.md) file.
+[CONTRIBUTING.md](/CONTRIBUTING.md) file.
 
 ## License
 
 I am licensing this project under the BSD 2-Clause License with a Charity
-extension. For more information, please refer to the
-[LICENSE](/blob/main/LICENSE) file.
+extension. For more information, please refer to the [LICENSE](/LICENSE) file.
