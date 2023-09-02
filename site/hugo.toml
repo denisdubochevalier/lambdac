@@ -1,0 +1,112 @@
+baseURL = 'https://localhost:1313/'
+languageCode = 'en-us'
+title = 'λ.c'
+author = 'Denis Chevalier'
+copyright = '© 2023 [Denis Chevalier](https://github.com/denisdubochevalier)'
+paginate = 3
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+theme = 'risotto'
+
+# Automatically add content sections to main menu
+sectionPagesMenu = ""
+
+[params]
+noindex = false
+
+[params.theme]
+palette = "base16-zenburn"
+
+# Sidebar: about/bio
+[params.about]
+title = "λ.c"
+description = "A minimalist compiler written in go for untyped lambda calculus with a focus on simplicity and elegance."
+logo = "https://github.com/denisdubochevalier/lambdac/raw/main/lambdac_logo_white.png"
+
+# Sidebar: social links
+# Available icon sets:
+# * FontAwesome 6 <https://fontawesome.com/> ('fa-brands', 'fa-normal', or 'fa-solid' for brands)
+# * Academicons <https://jpswalsh.github.io/academicons> ('ai ai-')
+
+[[params.socialLinks]]
+icon = "fa-brands fa-github"
+title = "GitHub"
+url = "https://github.com/denisdubochevalier/lambdac"
+
+[[params.socialLinks]]
+icon = "fa-solid fa-envelope"
+title = "Email"
+url = "mailto:denisdubochevalier+lambdac@gmail.com"
+
+[[params.socialLinks]]
+icon = "ai ai-orcid"
+title = "ORCID"
+url = "https://orcid.org/0000-0001-6630-4849"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "License"
+    name = "LICENSE"
+    url = "/license/"
+    weight = 10
+  [[menu.main]]
+    identifier = "Design Goals"
+    name = "Design Goals"
+    url = "/design-goals"
+    weight = 10
+  [[menu.main]]
+    identifier = "Syntax Specification"
+    name = "Syntax Specification"
+    url = "/syntax-specification"
+    weight = 10
+  [[menu.main]]
+    identifier = "Blog"
+    name = "Blog"
+    url = "/post"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+# For hugo >= 0.60.0, enable inline HTML
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup]
+
+  # Table of contents
+  # Add toc = true to content front matter to enable
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 3
+    ordered    = true
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
