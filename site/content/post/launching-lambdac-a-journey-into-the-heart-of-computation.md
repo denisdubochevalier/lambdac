@@ -6,6 +6,16 @@ date = 2023-09-02T21:16:50+02:00
 
 draft = false
 
+author = 'Denis Chevalier'
+
+description = 'Project goals explanation'
+
+tags = ['compiler','project','status','goals','intent', 'lambda calculus','contribution']
+
+categories = ['status', 'blog']
+
+series = ['Project Advencement']
+
 +++
 
 Welcome to the first official blog post for λ.c (lambda c), a new programming
