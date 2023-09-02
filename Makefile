@@ -9,3 +9,6 @@ cover: test
 	
 install:
 	go install .
+
+clean:
+	@rm -f lambdac c.out
