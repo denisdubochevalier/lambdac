@@ -11,7 +11,7 @@ install:
 	go install .
 
 clean:
-	@rm -f lambdac c.out
+	@rm -rf lambdac c.out site/public
 
 serve:
 	hugo -s site serve
