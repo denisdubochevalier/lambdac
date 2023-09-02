@@ -4,7 +4,7 @@ title = 'Design Goals'
 
 date = 2023-09-02T20:00:28+02:00
 
-draft = true
+draft = false
 
 +++
 
