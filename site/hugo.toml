@@ -1,4 +1,4 @@
-baseURL = 'https://localhost:1313/'
+baseURL = 'https://denisdubochevalier.github.io/lambdac'
 languageCode = 'en-us'
 title = 'λ.c'
 author = 'Denis Chevalier'
@@ -19,7 +19,7 @@ palette = "base16-zenburn"
 
 # Sidebar: about/bio
 [params.about]
-title = "λ.c"
+title = ""
 description = "A minimalist compiler written in go for untyped lambda calculus with a focus on simplicity and elegance."
 logo = "https://github.com/denisdubochevalier/lambdac/raw/main/lambdac_logo_white.png"
 
