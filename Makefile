@@ -12,3 +12,9 @@ install:
 
 clean:
 	@rm -f lambdac c.out
+
+serve:
+	hugo -s site serve
+
+hugo:
+	hugo -s site --minify
