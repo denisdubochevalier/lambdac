@@ -43,6 +43,11 @@ icon = "ai ai-orcid"
 title = "ORCID"
 url = "https://orcid.org/0000-0001-6630-4849"
 
+[[params.socialLinks]]
+icon = "fa-solid fa-headphones-simple"
+title = "Music"
+url = "https://linktr.ee/stalysmusic"
+
 [menu]
 
   [[menu.main]]
