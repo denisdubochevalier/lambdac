@@ -8,11 +8,9 @@ draft = false
 
 author = 'Denis Chevalier'
 
-description = 'A side look into my state of mind as I am working on this
-project.'
+description = 'A side look into my state of mind as I am working on this project.'
 
-tags = ['functional programming', 'philosophy', 'music', 'recursion', 'feedback
-loop', 'chaos', 'cybernetics']
+tags = ['functional programming', 'philosophy', 'music', 'recursion', 'feedback loop', 'chaos', 'cybernetics']
 
 categories = ['ideas', 'blog']
 
