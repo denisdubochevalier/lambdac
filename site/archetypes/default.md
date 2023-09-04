@@ -1,5 +1,19 @@
 +++
+
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+
 date = {{ .Date }}
-draft = true
+
+draft = false
+
+author = 'Denis Chevalier'
+
+description = ''
+
+tags = []
+
+categories = ['status', 'blog']
+
+series = ['Project Advencement']
+
 +++
