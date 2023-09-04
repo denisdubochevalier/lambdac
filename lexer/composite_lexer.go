@@ -26,16 +26,16 @@ func compositeLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 			x2, size := utf8.DecodeRuneInString(xs)
 			xs := xs[size:]
 			if x == ':' && x2 == '=' {
-				return monad.Some(Token{ASSIGN, l.position, Literal(x)}), l.
+				return monad.Some(Token{ASSIGN, l.position, Literal([]rune{x, x2})}), l.
 					WithPosition(l.position.advanceCol()).
 					WithContent(xs).
-					WithNextLexerFunc(dispatcherLexer)
+					WithNextLexerFunc(eofLexer)
 			}
 			if x == '-' && x2 == '>' {
-				return monad.Some(Token{NSDEREF, l.position, Literal(x)}), l.
+				return monad.Some(Token{NSDEREF, l.position, Literal([]rune{x, x2})}), l.
 					WithPosition(l.position.advanceCol()).
 					WithContent(xs).
-					WithNextLexerFunc(dispatcherLexer)
+					WithNextLexerFunc(eofLexer)
 			}
 		}
 	}

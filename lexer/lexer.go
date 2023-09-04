@@ -50,8 +50,8 @@
 //	l := lexer.New().WithContent(input)
 //
 //	for {
-//	  tok := l.Next()
-//	  if tok.Type == EOF {
+//	  tok, l := l.Next()
+//	  if tok.Value().Type() == lexer.EOF {
 //	    break
 //	  }
 //	  // Process tok
@@ -73,11 +73,12 @@ type Lexer struct {
 
 // New initializes and returns a new Lexer instance with its position set to the starting point.
 // This constructor adheres to the principle of sensible defaults, automatically setting the position
-// to the beginning of the source text, thereby allowing for immediate utilization for lexical analysis.
-// Additional state variables like content and nextLexerFunc are left uninitialized and can be set
-// using their respective methods.
+// to the beginning of the source text and the nextLexerFunc to the eofLexer, thereby allowing for
+// immediate utilization for lexical analysis.
+// Additional state variables like content is left uninitialized and can be set using its respective
+// methods.
 func New() Lexer {
-	return Lexer{position: StartPosition(), nextLexerFunc: dispatcherLexer}
+	return Lexer{position: StartPosition(), nextLexerFunc: eofLexer}
 }
 
 // WithPosition updates the Lexer's Position, returning a new Lexer with the

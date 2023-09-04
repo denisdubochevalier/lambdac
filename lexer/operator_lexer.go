@@ -33,7 +33,7 @@ func operatorLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 		return monad.Some(Token{tokenType, l.position, Literal(x)}), l.
 			WithPosition(l.position.advanceCol()).
 			WithContent(xs).
-			WithNextLexerFunc(dispatcherLexer)
+			WithNextLexerFunc(eofLexer)
 	}
 
 	// Fall back to compositeLexer for potentially composite operators

@@ -59,7 +59,7 @@ func updateLexerForRecursion(l Lexer, size int, xs string) Lexer {
 	return New().
 		WithPosition(l.position.advanceColBy(size)).
 		WithContent(xs).
-		WithNextLexerFunc(dispatcherLexer)
+		WithNextLexerFunc(eofLexer)
 }
 
 // idLexRecursively is a recursive descent function that identifies tokens of
@@ -104,7 +104,7 @@ func idLexRecursively(l Lexer) (monad.Maybe[Token], Lexer) {
 
 		if token, ok := token.(monad.Just[Token]); ok {
 			t := token.Value()
-			t.literal = Literal(string(x) + string(t.literal))
+			t.literal = Literal(string(x)) + t.Literal()
 			return monad.Some(t), remainingLexer
 		}
 	}

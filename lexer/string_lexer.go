@@ -42,7 +42,7 @@ func stringLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 	return monad.Some(val.Value()), l.
 		WithPosition(l.position.advanceColBy(utf8.RuneCountInString(val.Value().literal.String()))).
 		WithContent(content).
-		WithNextLexerFunc(dispatcherLexer)
+		WithNextLexerFunc(eofLexer)
 }
 
 // handleEscapeCharacter handles the escape character '\' within a string literal.
@@ -65,18 +65,18 @@ func appendStringToken(t Token, x rune) Token {
 // recursiveStringLexer is the recursive function to handle string lexing.
 func recursiveStringLexer(t Token, xs string) monad.Either[Token] {
 	if len(xs) == 0 {
-		return monad.NewRVal(Token{ILLEGAL, t.position, ""})
+		return monad.NewRVal(Token{ILLEGAL, t.Position(), ""})
 	}
 
 	x, size := utf8.DecodeRuneInString(xs)
 	xs = xs[size:]
 
 	if x == '\n' {
-		return monad.NewRVal(Token{ILLEGAL, t.position, ""})
+		return monad.NewRVal(Token{ILLEGAL, t.Position(), ""})
 	}
 
 	if x == '"' {
-		return monad.NewRVal(Token{STRING, t.position, t.literal})
+		return monad.NewRVal(Token{STRING, t.Position(), t.Literal()})
 	}
 
 	if x == '\\' {

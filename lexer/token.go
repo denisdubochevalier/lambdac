@@ -8,3 +8,23 @@ type Token struct {
 	position  Position
 	literal   Literal
 }
+
+// Type returns the TokenType of a token instance.
+// This provides an immutable way to access the type, upholding
+// the principle of encapsulation.
+func (t Token) Type() TokenType {
+	return t.tokenType
+}
+
+// Position returns the position of a token instance, similarly
+// to TokenType, protecting it from mutations and ensuring
+// data integrity.
+func (t Token) Position() Position {
+	return t.position
+}
+
+// Literal gets the token literal, ie. the actual string in the
+// source text. It protects the underlying value from mutations.
+func (t Token) Literal() Literal {
+	return t.literal
+}
