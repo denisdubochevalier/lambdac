@@ -1,7 +1,6 @@
 +++
 
-title = 'The Harmonic Convergence: Music, Programming, and Philosophy in λ.c
-Development'
+title = 'The Harmonic Convergence: Music, Programming, and Philosophy in λ.c Development'
 
 date = 2023-09-04T22:43:16+02:00
 
