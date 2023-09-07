@@ -7,7 +7,7 @@ import (
 	"github.com/denisdubochevalier/monad"
 )
 
-func ExampleLexerNext() {
+func Example() {
 	input := `maths | "github.com/foo/bar"
 
 	Y := \f.(\x.f(x x)).(\x.f(x x))
@@ -20,7 +20,7 @@ func ExampleLexerNext() {
 	l := lexer.New().WithContent(input)
 
 	for {
-		token := monad.None[lexer.Token]()
+		var token monad.Maybe[lexer.Token]
 		token, l = l.Next()
 		if _, ok := token.(monad.Nothing[lexer.Token]); ok {
 			continue

@@ -18,3 +18,6 @@ serve:
 
 hugo:
 	hugo -s site --minify
+
+lint:
+	golangci-lint run ./...
