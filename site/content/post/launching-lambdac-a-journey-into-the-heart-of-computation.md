@@ -1,7 +1,6 @@
 +++
 
-title = 'The Dawn of λ.c: Conjuring Computations with the Elegance of Untyped
-Lambda Calculus'
+title = 'The Dawn of λ.c: Conjuring Computations with the Elegance of Untyped Lambda Calculus'
 
 date = 2023-09-02T21:16:50+02:00
 
@@ -11,8 +10,7 @@ author = 'Denis Chevalier'
 
 description = 'Project goals explanation'
 
-tags = ['compiler','project','status','goals','intent', 'lambda
-calculus','contribution']
+tags = ['compiler','project','status','goals','intent', 'lambda calculus','contribution']
 
 categories = ['status', 'blog']
 
