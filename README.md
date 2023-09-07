@@ -10,6 +10,8 @@
 [![Go report](https://goreportcard.com/badge/github.com/denisdubochevalier/lambdac)](https://goreportcard.com/report/github.com/denisdubochevalier/lambdac)
 [![Coverage](https://img.shields.io/codecov/c/github/denisdubochevalier/lambdac)](https://codecov.io/gh/denisdubochevalier/lambdac)
 
+## Unleash the Power of Untyped Lambda Calculus
+
 Crafted with an unwavering focus on simplicity and elegance, λ.c is more than
 just a minimalist compiler. It's a vision of what computing can be at its most
 elemental.
