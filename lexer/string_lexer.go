@@ -46,19 +46,19 @@ func stringLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 }
 
 // handleEscapeCharacter handles the escape character '\' within a string literal.
-func handleEscapeCharacter(xs string) (string, rune) {
+func handleEscapeCharacter(xs string) (string, rune, bool) {
 	x2, _ := utf8.DecodeRuneInString(xs)
 	switch x2 {
 	case '"':
-		return xs[1:], '"'
+		return xs[1:], x2, false
 	default:
-		return xs[1:], x2
+		return xs[1:], x2, true
 	}
 }
 
 // appendStringToken appends the current character to the existing string token.
 func appendStringToken(t Token, x rune) Token {
-	t.literal = Literal(string(x)) + t.literal
+	t.literal = t.literal + Literal(string(x))
 	return t
 }
 
@@ -80,7 +80,11 @@ func recursiveStringLexer(t Token, xs string) monad.Either[Token] {
 	}
 
 	if x == '\\' {
-		xs, x = handleEscapeCharacter(xs)
+		keepBackslash := false
+		xs, x, keepBackslash = handleEscapeCharacter(xs)
+		if keepBackslash {
+			t = appendStringToken(t, '\\')
+		}
 	}
 
 	return recursiveStringLexer(appendStringToken(t, x), xs)

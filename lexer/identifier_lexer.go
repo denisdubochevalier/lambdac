@@ -50,8 +50,9 @@ func checkCompositeOps(x rune, xs string) bool {
 
 // isValidIdentifierChar validates if a rune can be part of an identifier.
 func isValidIdentifierChar(x rune) bool {
-	reservedOps := "\\.()|:-"
-	return !unicode.IsSpace(x) && x != '\n' && !strings.ContainsRune(reservedOps, x)
+	reservedOps := "\\.()|"
+	return unicode.IsGraphic(x) && !unicode.IsSpace(x) && x != '\n' &&
+		!strings.ContainsRune(reservedOps, x)
 }
 
 // updateLexerForRecursion prepares a new Lexer instance for the next recursion level.
@@ -60,6 +61,42 @@ func updateLexerForRecursion(l Lexer, size int, xs string) Lexer {
 		WithPosition(l.position.advanceColBy(size)).
 		WithContent(xs).
 		WithNextLexerFunc(eofLexer)
+}
+
+// mergeLiterals combines an existing Token with a new rune to form a new Token. The function employs monadic abstractions
+// to ensure composability and error safety.
+//
+// Parameters:
+// - existing: A monad.Maybe[Token] containing an optional existing Token. If present, this Token will be combined with the new rune.
+// - newChar: A rune that will be combined with the existing Token's literal.
+//
+// Returns:
+//   - monad.Maybe[Token]: A new monadic Maybe instance encapsulating the resultant Token. If an existing Token is present,
+//     its literal is extended with the new rune at the beginning; otherwise, a new Token is formed solely from the new rune.
+//
+// Example:
+// Assuming existing Token has a literal "bcd", and newChar is 'a',
+// the returned Token will have a literal "abcd".
+func mergeLiterals(existing monad.Maybe[Token], newChar rune) monad.Maybe[Token] {
+	// Handle the edge case when both existing and newChar are empty.
+	if existing == monad.None[Token]() && newChar == rune(0) {
+		return monad.Some(Token{literal: Literal(newChar)})
+	}
+
+	// If newChar is empty but existing is not None, return existing.
+	if newChar == rune(0) {
+		return existing
+	}
+
+	// If existing is Just, merge the literals.
+	if existingToken, ok := existing.(monad.Just[Token]); ok {
+		t := existingToken.Value()
+		t.literal = Literal(newChar) + t.Literal()
+		return monad.Some(t)
+	}
+
+	// If existing is None and newChar is not empty, create a new Token.
+	return monad.Some(Token{literal: Literal(newChar)})
 }
 
 // idLexRecursively is a recursive descent function that identifies tokens of
@@ -100,13 +137,9 @@ func idLexRecursively(l Lexer) (monad.Maybe[Token], Lexer) {
 
 		// Continue with the recursion, consuming the character
 		nextLexer := updateLexerForRecursion(l, size, xs)
-		token, remainingLexer := idLexRecursively(nextLexer)
-
-		if token, ok := token.(monad.Just[Token]); ok {
-			t := token.Value()
-			t.literal = Literal(string(x)) + t.Literal()
-			return monad.Some(t), remainingLexer
-		}
+		nextToken, remainingLexer := idLexRecursively(nextLexer)
+		mergedToken := mergeLiterals(nextToken, x)
+		return mergedToken, remainingLexer
 	}
 
 	// Finalize the token when we reach an invalid character for an identifier
