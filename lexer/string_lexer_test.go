@@ -1,6 +1,7 @@
 package lexer
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/leanovate/gopter"
@@ -33,9 +34,15 @@ func TestStringLexer(t *testing.T) {
 			is := require.New(t)
 
 			lexer := New().WithContent(testCase.input)
-			tokenMaybe, _ := stringLexer(lexer)
+			tokenMaybe, l := stringLexer(lexer)
+
 			token := tokenMaybe.Value()
 			is.Equal(testCase.output, token)
+			if token.tokenType != ILLEGAL {
+				nlf1 := reflect.ValueOf(eofLexer)
+				nlf2 := reflect.ValueOf(l.nextLexerFunc)
+				is.Equal(nlf1.Pointer(), nlf2.Pointer())
+			}
 		})
 	}
 }

@@ -139,7 +139,7 @@ func idLexRecursively(l Lexer) (monad.Maybe[Token], Lexer) {
 		nextLexer := updateLexerForRecursion(l, size, xs)
 		nextToken, remainingLexer := idLexRecursively(nextLexer)
 		mergedToken := mergeLiterals(nextToken, x)
-		return mergedToken, remainingLexer
+		return monad.Some(Token{IDENT, l.position, mergedToken.Value().Literal()}), remainingLexer
 	}
 
 	// Finalize the token when we reach an invalid character for an identifier

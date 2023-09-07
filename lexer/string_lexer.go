@@ -37,7 +37,7 @@ func stringLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 	xs := l.content[size:]
 
 	val := recursiveStringLexer(Token{STRING, l.position, ""}, xs)
-	content, _ := strings.CutPrefix(l.content, string(val.Value().literal))
+	content, _ := strings.CutPrefix(l.content, "\""+string(val.Value().literal)+"\"")
 
 	return monad.Some(val.Value()), l.
 		WithPosition(l.position.advanceColBy(utf8.RuneCountInString(val.Value().literal.String()))).

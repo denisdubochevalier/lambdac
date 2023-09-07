@@ -47,14 +47,17 @@
 //
 // Example:
 //
-//	l := lexer.New().WithContent(input)
-//
 //	for {
-//	  tok, l := l.Next()
-//	  if tok.Value().Type() == lexer.EOF {
+//	  token := monad.None[lexer.Token]()
+//	  token, l = l.Next()
+//	  if _, ok := token.(monad.Nothing[lexer.Token]); ok {
+//	    continue
+//	  }
+//	  if token.Value().Type() == lexer.EOF {
 //	    break
 //	  }
-//	  // Process tok
+//
+//	  // Do something with the token
 //	}
 package lexer
 
