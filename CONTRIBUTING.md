@@ -1,98 +1,78 @@
-# Contributing
+# The Cardinal Laws of Collaboration: An Opus for Conducing Contributions to λ.c
 
-When contributing to this repository, please first discuss the change you wish
-to make via issue, email, or any other method with the owners of this repository
-before making a change.
+Salutations, esteemed contributors and gallant guardians of the λ.c odyssey.
+Your intellectual investiture and technical talents enrich the wellspring of
+this grand endeavor. However, such a collective voyage necessitates a set of
+decorous conventions—a codex that governs the intricate ballet of code and
+community. Behold, the cardinal laws of collaboration.
 
-Please note we have a code of conduct, please follow it in all your interactions
-with the project.
+## Preliminary Discourse: The Conduit of Communication
 
-## Pull Request Process
+Prior to weaving your ingenuity into the codebase or shaping the theoretical
+contours of λ.c, one must initiate a dialogue—a dialectic if you will—with the
+curators of this project. Whether through the forum of GitHub issues, the
+formality of electronic mail, or alternative channels of discourse, this
+preliminary consultation is requisite.
 
-1. Ensure any install or build dependencies are removed before the end of the
-   layer when doing a build.
-2. Update the README.md with details of changes to the interface, this includes
-   new environment variables, exposed ports, useful file locations and container
-   parameters.
-3. Increase the version numbers in any examples files and the README.md to the
-   new version that this Pull Request would represent. The versioning scheme we
-   use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other
-   developers, or if you do not have permission to do that, you may request the
-   second reviewer to merge it for you.
+## Ethical Compact: The Codex of Civility
 
-## Code of Conduct
+In the fecund pastures of intellectual exchange, it is incumbent upon all
+individuals to abide by an ethical compact that engenders a congenial and
+inclusive milieu. This encompasses but is not limited to:
 
-### Our Pledge
+- The employment of inclusive and genial verbiage
+- A deference to the plurality of opinions and experiences
+- Receptive comportment to constructive critique
+- Fidelity to the collective interests and ethos of the λ.c community
+- A pervasive empathy towards all consociates
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of
-experience, nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+Detailed prescriptions and proscriptions are elucidated in the subsequent
+sections.
 
-### Our Standards
+## Exegesis of the Pull Request Process
 
-Examples of behavior that contributes to creating a positive environment
-include:
+1. **Purification of Dependencies**: Assiduously expunge any lingering build or
+   installation dependencies prior to the completion of your contributions.
+2. **Chronicles in README**: Amend the README.md to reflect alterations to the
+   interface, divulging newly-introduced variables, ports, files, or other
+   pertinent paradigms.
+3. **Numerical Ascendancy**: Align the version numbers within example files and
+   README.md in accordance with the [SemVer](http://semver.org/) nomenclature to
+   represent the novel changes.
+4. **The Merging Liturgy**: The Pull Request may ascend to the celestial realms
+   of the `master` branch upon the benedictions of no fewer than two fellow
+   developers. If such permissions elude you, beseech a second reviewer to enact
+   the merging ritual.
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+## Code of Civility: Ethical Compact Detailed
 
-Examples of unacceptable behavior by participants include:
+- **The Covenant**: In the fertile lands of λ.c, all must abide by a covenant
+  that banishes harassment and fosters inclusivity, irrespective of biological,
+  sociological, or ideological facets.
 
-- The use of sexualized language or imagery and unwelcome sexual attention or
-  advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+- **The Consequences**: Custodians of the project reserve the right to excise,
+  modify, or rebuff contributions that flout this covenant, or to castigate
+  contributors via temporary or perpetual exile.
 
-### Our Responsibilities
+- **The Jurisdiction**: This ethical compact reigns supreme within all spheres
+  where an individual assumes the mantle of λ.c representation, both virtual and
+  corporeal.
 
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
+## Instruments of Enforcement
 
-Project maintainers have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, or to ban temporarily or permanently any
-contributor for other behaviors that they deem inappropriate, threatening,
-offensive, or harmful.
+Incidents violating the sanctity of this code may be reported to the coterie of
+λ.c maintainers at <denisdubochevalier+lambdac@gmail.com>. All entreaties will
+be investigated with utmost impartiality and confidentiality.
 
-### Scope
+Project overseers who eschew the enforcement of this Code of Civility may incur
+retributive actions as meted out by the project’s leadership.
 
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
+## Source of Inspiration
 
-### Enforcement
+This ethical compact is inspired by the venerated
+[Contributor Covenant](http://contributor-covenant.org/), version 1.4, available
+for perusal at [this location](http://contributor-covenant.org/version/1/4/).
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at
-<denisdubochevalier+lambdac@gmail.com>. All complaints will be reviewed and
-investigated and will result in a response that is deemed necessary and
-appropriate to the circumstances. The project team is obligated to maintain
-confidentiality with regard to the reporter of an incident. Further details of
-specific enforcement policies may be posted separately.
-
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
-
-### Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 1.4, available at [http://contributor-covenant.org/version/1/4][version]
-
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+May these guidelines serve as the illuminated manuscript that guides our
+collective endeavor, assuring that λ.c matures as both an exemplar of
+computational excellence and a paragon of collaborative virtuousness.
