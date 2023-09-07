@@ -1,6 +1,6 @@
 +++
 
-title = 'Syntax Specification'
+title = 'The Anatomy of λ.c: A Primer on Its Syntax and Semantics'
 
 date = 2023-09-02T20:00:35+02:00
 
@@ -8,24 +8,58 @@ draft = false
 
 +++
 
-The syntax of the language is close to the initial lambda calculus. For example:
+Unveiling the realm of computation through the austere lens of lambda calculus,
+λ.c harbors a straightforward yet poignant syntax. Crafted to strike a chord
+between mathematical elegance and programmatic efficiency, it embraces Church's
+legacy while weaving in the pragmatics of modern development.
+
+## Function Definition and Abstraction
+
+In λ.c, the \ symbol serves as a surrogate for the lambda (λ) operator, adhering
+to the minimalist aesthetic of the language.
 
 ```haskell
-f = \x.\y.x
-y = \f.(\x.f(x x))(\x.f(x x))
+-- Identity Function
+i := \x.x
+
+-- Constant Function
+k := \x.\y.x
+
+-- Y Combinator
+y := \f.(\x.f(x x))(\x.f(x x))
 ```
 
-To call a function, you can use the following syntax:
+## Function Application
+
+Invoking a function in λ.c is akin to setting the wheels of abstraction into
+motion. Simple, direct, and without adornment, as exemplified below:
 
 ```haskell
-f (\x.\y.y)
+-- Applying the identity function
+result := i (\x.x)
+
+-- Combining two constant functions
+combined := k (\x.\y.y)
 ```
 
-To include a module, use the `|` symbol followed by the module's path:
+## Modules and Namespaces: An Intersection of Utility and Minimalism
+
+In λ.c, one can extend functionality through the judicious use of modules. These
+are incorporated using the | symbol, followed by the module's canonical path.
+The -> operator subsequently serves as the key to a namespace's vault of
+functionalities.
 
 ```haskell
-io | 'github.com/foo/fileio'
+-- Inclusion of an I/O module
+io | "github.com/exquisitecorporealbeing/fileio"
+
+-- Reading a file, delegating the task to the included I/O module
+fileContents := io->read_file "quintessence.txt"
 ```
 
-For more detailed usage instructions and examples, please refer to the
-documentation.
+## Epilogue
+
+While this elucidation barely scratches the surface, it offers a glimpse into
+the profound simplicity that is λ.c. For a more expansive discourse on its
+features, semantics, and nuances, the accompanying documentation stands as your
+scholarly companion.

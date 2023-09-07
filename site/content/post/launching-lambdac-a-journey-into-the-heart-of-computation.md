@@ -1,6 +1,7 @@
 +++
 
-title = 'Launching λ.c: A Journey into the Heart of Computation'
+title = 'The Dawn of λ.c: Conjuring Computations with the Elegance of Untyped
+Lambda Calculus'
 
 date = 2023-09-02T21:16:50+02:00
 
@@ -10,7 +11,8 @@ author = 'Denis Chevalier'
 
 description = 'Project goals explanation'
 
-tags = ['compiler','project','status','goals','intent', 'lambda calculus','contribution']
+tags = ['compiler','project','status','goals','intent', 'lambda
+calculus','contribution']
 
 categories = ['status', 'blog']
 
@@ -18,90 +20,76 @@ series = ['Project Advencement']
 
 +++
 
-Welcome to the first official blog post for λ.c (lambda c), a new programming
-language that aims to bring the elegance and power of untyped lambda calculus to
-modern developers. I am excited to share the journey of this project, from its
-inception to its current status, and how you can contribute to its development.
+Greetings, illustrious seekers of computational purity and aficionados of
+mathematical elegance. Allow me to extend a warm invitation to the cerebral
+odyssey that is λ.c—a programming language fusing the timeworn splendors of
+untyped lambda calculus with the exigencies of contemporary software
+development.
 
-## Why λ.c?
+## The Genesis of λ.c: Why Stir the Aether?
 
-Lambda calculus, a mathematical framework developed by Alonzo Church in the
-1930s, is the smallest universal programming language, capable of expressing any
-computable function. It forms the theoretical foundation of many popular
-programming languages today - like Common Lisp and Haskell -, yet it is rarely
-used directly due to its minimalistic and abstract nature.
+One cannot peruse the annals of computational theory without crossing paths with
+the visionary work of Alonzo Church—the father of lambda calculus. Though
+conceived in the 1930s, this austere language of abstraction forms the bedrock
+upon which modern computational leviathans like _Haskell_ and _Common Lisp_ are
+erected. Yet, it remains ensconced in theoretical lore, seldom breaking the
+surface into mainstream use, ostensibly due to its unadulterated minimalism.
 
-I have always been fascinated by the simplicity and expressive power of lambda
-calculus. While playing with my usual work and toy projects, I realized the
-potential of creating a language that stays true to the principles of lambda
-calculus while adding just enough conveniences to make it practical for
-real-world use.
+As I traversed the corridors of my intellectual pursuits and engineering
+experiments, an epiphany alighted upon me—the possibility of breathing life into
+a programming language that marries the purity of lambda calculus with pragmatic
+embellishments for practical deployments. Thus was born λ.c, an offering to the
+computational deities that venerates minimalism, champions first-class
+functions, and lends itself to intuitive notations through a mix of Polish
+syntax and currying.
 
-λ.c is born out of this realization. It aims to provide a minimalistic syntax
-and feature set, staying true to its roots while making it accessible and
-practical for modern developers. Everything is a function in λ.c, and functions
-are first-class citizens. You can define functions, pass them as arguments, and
-return them as results. The language uses a mix of Polish notation (prefix) and
-currying to make the syntax as clean and intuitive as possible.
+## Guiding Tenets: The Philosophical Cornerstones
 
-## Project Goals
+It behooves us to elucidate the guiding imperatives that propel this endeavor:
 
-The primary goal of λ.c is to create a minimalistic, yet practical programming
-language based on untyped lambda calculus. Here are some specific objectives:
+1. **Elegance in Simplicity**: To hew closely to the original syntax of lambda
+   calculus, albeit with nuanced modifications that engender practical utility.
+2. **Canonical Combinators**: To endow each program with an arsenal of venerable
+   combinators—K, S, C, and the like—out of the box.
+3. **Modular Grandeur**: To architect a hierarchical tapestry for modules that
+   bring forth common computational artifacts, from the banalities of Church
+   Literals to the complexities of IO and Networking.
+4. **Type System Abeyance**: To refrain from imposing a type system initially,
+   leaving open the tantalizing prospect of its future inclusion.
+5. **Recursive Genesis**: To culminate in a self-hosting compiler, reifying λ.c
+   within its own existential framework.
 
-1. **Minimalistic Syntax**: Implement a syntax that is as close as possible to
-   the initial lambda calculus, with minor modifications for practicality.
-2. **Common Combinators**: Automatically include a prefix with the definition of
-   all common combinators (like K, S, C, ...) in any program.
-3. **Module Imports**: Implement a folder-based hierarchy for importing modules
-   that implement common data types like Church Literals, Pairs, Lists, Real and
-   Complex Numbers arithmetic, but also IO and Networking.
-4. **No Initial Type System**: Start without a type system, possibly adding it
-   as an extension or module later on.
-5. **Self-Hosting Compiler**: Eventually reimplement the compiler in λ.c itself.
+## Current Alchemy: The Crucible's Contents
 
-## Current Status
+As of this moment, λ.c is embryonic—its metaphysical form still materializing
+within the crucible of planning and specification. The vaults of its GitHub
+sanctuary are aflutter with drafts, musings, and roadmaps that hint at a
+tantalizing journey ahead.
 
-As of now, λ.c is in its infancy. The project is in the planning and
-specification stage, with initial drafts of the syntax and feature set being
-developed. The goal is to start with a very minimal implementation and
-incrementally build upon it, documenting the process along the way.
+## A Clarion Call: Your Role in This Cerebral Voyage
 
-The project is hosted on GitHub, and I am currently working on setting up the
-repository, drafting the initial specifications, and planning the development
-roadmap.
+This expedition seeks fellow travelers, be they scholars, engineers, or
+laypersons intrigued by computational philosophy:
 
-## How to Contribute
+1. **Illumination through Feedback**: Engage in
+   [discourse](https://github.com/denisdubochevalier/lambdac/issues) that will
+   influence the trajectory of λ.c's evolving metaphysics.
+2. **Documentation as Scripture**: Participate in
+   [chronicling](https://github.com/denisdubochevalier/lambdac/tree/main/site)
+   the annals of this new dialect, rendering it comprehensible for posterity.
+3. **The Craftsmanship of Code**: Involve yourself directly in the
+   [transmutation of theory to code](https://github.com/denisdubochevalier/lambdac/blob/main/CONTRIBUTING.md),
+   breathing functionality into abstract constructs.
+4. **The Rigor of Testing**: Lend your faculties to the validation and
+   fortification of λ.c, ensuring its resilience against the tempests of
+   computational dilemmas.
 
-Contributions are warmly welcomed and greatly appreciated. Here are some ways
-you can contribute to the project:
+## Epilogue: The Road Unraveled, The Path Ahead
 
-1. **Feedback**: Provide
-   [feedback](https://github.com/denisdubochevalier/lambdac/issues) on the
-   language design, syntax, and feature set. Your insights and suggestions can
-   help shape the direction of the project.
-2. **Documentation**: Help with
-   [documenting](https://github.com/denisdubochevalier/lambdac/tree/main/site)
-   the language, its features, and the development process. Good documentation
-   is crucial for the success of any open-source project.
-3. **Development**: Contribute to the development of the language, its compiler,
-   and standard library. Whether you are an experienced developer or just
-   starting, there are
-   [many ways](https://github.com/denisdubochevalier/lambdac/blob/main/CONTRIBUTING.md)
-   to contribute to the codebase.
-4. **Testing**: Help with testing the language and its features. Testing is a
-   critical aspect of the development process and ensures the language's
-   reliability and stability. If you are interested in contributing, please
-   check out the
-   [GitHub repository](https://github.com/denisdubochevalier/lambdac) for more
-   information on how to get started.
-
-## Conclusion
-
-I am thrilled to embark on this journey and excited to see where it leads.
-Developing a programming language is a challenging and rewarding endeavor, and I
-am grateful for the opportunity to contribute to the community in this way.
-
-Thank you for your interest in λ.c and for joining me on this adventure. Stay
-tuned for more updates, and in the meantime, feel free to join the discussion on
-our [GitHub repository](https://github.com/denisdubochevalier/lambdac).
+As I stand on the precipice of this grand undertaking, buoyed by a blend of
+trepidation and exultation, I extend my deepest gratitude for your investment in
+λ.c. May this journal serve as a lodestar guiding us through the labyrinthine
+complexity and sublime simplicity that epitomize computational theory. The
+[GitHub sanctuary](https://github.com/denisdubochevalier/lambdac) awaits your
+presence. Until our next scholarly rendezvous, let the quest for computational
+enlightenment commence!
