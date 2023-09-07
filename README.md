@@ -10,33 +10,94 @@
 [![Go report](https://goreportcard.com/badge/github.com/denisdubochevalier/lambdac)](https://goreportcard.com/report/github.com/denisdubochevalier/lambdac)
 [![Coverage](https://img.shields.io/codecov/c/github/denisdubochevalier/lambdac)](https://codecov.io/gh/denisdubochevalier/lambdac)
 
-A minimalist compiler written in go for untyped lambda calculus with a focus on
-simplicity and elegance.
+Crafted with an unwavering focus on simplicity and elegance, λ.c is more than
+just a minimalist compiler. It's a vision of what computing can be at its most
+elemental.
 
-**Project Status: First Stages of Development**
-
-Please note that this project is still in its first stages of development and
-should not get used in production environments. The initial versions of the
-compiler are experimental and primarily intended for testing, feedback, and
-contributions from the developer community. We appreciate your interest and
-support in the project and encourage you to check back for updates.
+**🚨 Notice**: We're in the throes of initial development. The codebase is
+experimental—perfect for the brave of heart and curious of mind. Come, be a
+pioneer!
+[See what we're building →](https://denisdubochevalier.github.io/lambdac/post)
 
 ## Table of Contents
 
+- [Current Features](#current-features)
+- [Roadmap](#roadmap)
 - [Documentation](#documentation)
 - [Installation](#installation)
-- [Contributing](#contributing)
-- [Charity Ware](#charity-ware)
+- [Contribute](#contribute)
+- [A Note on Kindness](#a-note-on-kindness)
 - [License](#license)
+
+## Current Features
+
+### The Gateway: Lexer
+
+As of now, our journey into untyped lambda calculus is heralded by a fully
+operational lexer. This initial offering brings with it:
+
+- Tokenization of basic lambda calculus syntax: variables, lambdas, and
+  parentheses.
+- Robust error handling for unexpected tokens.
+- A glimpse into the kind of meticulous craftsmanship that will define future
+  stages of this project.
+
+## Roadmap
+
+### AST Generation (In Progress)
+
+- Create a robust and extensible AST to represent lambda calculus expressions.
+- Implement parsing logic that translates token streams into the AST.
+
+### Semantic Analysis (Upcoming)
+
+- Validate the logical coherence of expressions.
+- Introduce scope resolution and perform alpha-renaming as necessary.
+
+### Intermediate Representations (Future)
+
+- Translate the AST into one or more intermediate forms for optimization.
+- Experiment with graph-based representations like Single Static Assignment
+  (SSA).
+
+### Optimization Techniques (Future)
+
+- Implement constant folding, dead code elimination, and other classical
+  optimization strategies.
+- Explore lambda calculus-specific optimizations.
+
+### Backend Generation (Future)
+
+- Translate intermediate forms into target machine code or another high-level
+  language.
+- Experiment with generating LLVM IR or WebAssembly for broader platform
+  support.
+
+### Runtime Environment (Future)
+
+- If applicable, develop a minimal runtime to manage program execution.
+- Consider garbage collection or other memory management strategies.
+
+### Documentation and Examples (Ongoing)
+
+- Continue to document the architecture, algorithms, and design patterns used.
+- Create example programs to demonstrate features and educational use-cases.
+
+### Community Building (Ongoing)
+
+- Engage with early users to gather feedback and iterate.
+- Develop contributor guidelines and good first issues to welcome new
+  developers.
 
 ## Documentation
 
-I am documenting the project
-[on the official website](https://denisdubochevalier.github.io/lambdac).
+Dive deep into the inner workings of λ.c through our
+[detailed documentation](https://denisdubochevalier.github.io/lambdac). Take
+your understanding from zero to hero—no calculus textbook required!
 
 ## Installation
 
-To install the compiler, follow these instructions:
+Follow the path of enlightenment:
 
 ```sh
 $ git clone git@github.com:denisdubochevalier/lambdac.git
@@ -44,31 +105,27 @@ $ cd lambdac
 $ make && make install
 ```
 
-## Contributing
+## Contribute
 
-Contributions are welcome! Please the following these steps to contribute:
+Dare to contribute? It's simple:
 
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b my-new-feature`.
-3. Commit your changes `git commit -am 'Add some feature'`.
-4. Push to the branch: `git push origin my-new-feature`.
-5. Submit a pull request.
+1. Fork this repository.
+2. Check out your own feature branch:
+   `git checkout -b feature/wondrous-feature`.
+3. Craft your magic: `git commit -am 'Add my wondrous feature'`.
+4. Share with the world: `git push origin feature/wondrous-feature`.
+5. Open a pull request and join the ranks of the enlightened.
 
-For more detailed contributing guidelines, please refer to the
-[CONTRIBUTING.md](/CONTRIBUTING.md) file.
+For even more details, consult our [Contributing Guide](/CONTRIBUTING.md).
 
-## Charity Ware
+## A Note on Kindness
 
-As an act of kindness, if you find this software useful, please consider making
-a donation to the Electronic Frontier Foundation (EFF), a leading nonprofit
-organization defending civil liberties in the digital world. EFF champions user
-privacy, free expression, and innovation through impact litigation, policy
-analysis, grassroots activism, and technology development. Donations are not
-required to use the software, but are greatly appreciated and will help support
-a good cause. For more information on the EFF or to make a donation, please
-visit EFF's Website: https://www.eff.org/.
+Though it costs nothing to use λ.c, consider extending your kindness by donating
+to the [Electronic Frontier Foundation (EFF)](https://www.eff.org). It's not
+required, but it's a way to contribute to the fight for civil liberties in the
+digital world.
 
 ## License
 
-I am licensing this project under the BSD 2-Clause License with a Charity
-extension. For more information, please refer to the [LICENSE](/LICENSE) file.
+λ.c is released under the BSD 2-Clause License. See the [LICENSE](/LICENSE) file
+for details.
