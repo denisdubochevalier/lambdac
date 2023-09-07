@@ -24,12 +24,24 @@ import (
 func eolLexer(l Lexer) (monad.Maybe[Token], Lexer) {
 	x, size := utf8.DecodeRuneInString(l.content)
 	xs := l.content[size:]
+	startPosition := l.position
 
 	if x == '\n' {
-		return monad.Some(Token{EOL, l.position, ""}), l.
-			WithPosition(l.position.newRow()).
+		l = l.
+			WithPosition(l.position).
 			WithContent(xs).
 			WithNextLexerFunc(eofLexer)
+
+		for x == '\n' {
+			x, size = utf8.DecodeRuneInString(l.content)
+			xs = l.content[size:]
+			l = l.
+				WithPosition(l.position.newRow()).
+				WithContent(xs).
+				WithNextLexerFunc(eofLexer)
+		}
+
+		return monad.Some(Token{EOL, startPosition, ""}), l
 	}
 
 	return spaceLexer(l)
