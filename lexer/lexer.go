@@ -2,12 +2,14 @@
 //
 // Overview:
 //
-// This package encapsulates the functionality required for tokenizing the source code of a
-// minimalist lambda calculus language. The lexing process begins with raw textual input
-// and converts it into a sequence of tokens, which are the atomic units for the subsequent parsing stage.
+// This package encapsulates the functionality required for tokenizing the
+// source code of a minimalist lambda calculus language. The lexing process
+// begins with raw textual input and converts it into a sequence of tokens,
+// which are the atomic units for the subsequent parsing stage.
 //
-// The Lexer type is the principal entity that performs lexical analysis. It maintains the current
-// state, including the position in the source code and a queue of upcoming characters.
+// The Lexer type is the principal entity that performs lexical analysis. It
+// maintains the current state, including the position in the source code and a
+// queue of upcoming characters.
 //
 // Formal Syntax:
 //
@@ -20,7 +22,8 @@
 //
 // The following token categories are defined for the lexer:
 //
-//   - IDENTIFIER:  Any sequence of Unicode graphical characters, excluding specific reserved characters.
+//   - IDENTIFIER:  Any sequence of Unicode graphical characters, excluding
+//     specific reserved characters.
 //   - LAMBDA:      The backslash ("\") symbol representing the lambda function.
 //   - DOT:         The dot (".") symbol used in lambda abstractions.
 //   - LPAREN:      The left parenthesis ("(") symbol.
@@ -28,22 +31,31 @@
 //   - ILLEGAL:     Any unrecognized sequence of characters.
 //   - EOF:         End of the file.
 //
-// Additionally, the lexer supports special constructs like strings with escape sequences, composite
-// operators like ":=" and "->", and line breaks.
+// Additionally, the lexer supports special constructs like strings with escape
+// sequences, composite operators like ":=" and "->", and line breaks.
 //
 // Features:
 //
-//  1. Unicode Support: Identifiers can include any graphical Unicode character, except for the defined
-//     reserved characters.
-//  2. Monadic Parsing: Utilizes monads for optionally storing tokens, providing for cleaner code and
-//     better error handling.
-//  3. Recursive Lexing: Many lexer functions, such as stringLexer and identifierLexer, are implemented
-//     using recursive techniques for simplicity and maintainability.
+//  1. Unicode Support: Identifiers can include any graphical Unicode character,
+//     except for the defined reserved characters.
+//  2. Monadic Parsing: Utilizes monads for optionally storing tokens, providing
+//     for cleaner code and better error handling.
+//  3. Recursive Lexing: Many lexer functions, such as stringLexer and
+//     identifierLexer, are implemented using recursive techniques for
+//     simplicity and maintainability.
 //
 // Usage:
 //
-// Initialize a Lexer with the input source code, then iteratively call its NextToken method to
-// retrieve the tokens one by one until an EOF token is returned.
+// Initialize a Lexer with the input source code, then iteratively call its
+// NextToken method to retrieve the tokens one by one until an EOF token is
+// returned.
+//
+// Advanced Usage:
+//
+// Due to its functional nature, this lexer may require a slightly different
+// usage pattern, particularly when it comes to state management and functional
+// composition. Users familiar with functional programming paradigms will find
+// it more intuitive.
 //
 // Example:
 //
@@ -59,6 +71,31 @@
 //
 //	  // Do something with the token
 //	}
+//
+// Architectural Choices:
+//
+// The lexer adopts a functional programming paradigm, manifest in its use of
+// pure functions, monads, and immutable states. This decision was made to:
+//
+//  1. Enhance Clarity of State: All state transitions are explicit and
+//     unambiguous.
+//  2. Minimize Side Effects: Reduces complexity in debugging and reasoning
+//     about the system.
+//  3. Improve Testability: Facilitates more straightforward and robust test
+//     cases.
+//  4. Maintain Conceptual Integrity: A functional approach resonates through
+//     the architecture, aiding comprehension.
+//
+// Note: While this approach may diverge from idiomatic Go, it provides specific
+//
+//	advantages given the complexities of lexing minimalist lambda calculus.
+//
+// Idiomatic Divergence:
+//
+// The lexer, while implemented in Go, leans toward functional programming
+// idioms more commonly seen in languages like Haskell or Lisp. This stylistic
+// choice may make the code appear non-idiomatic from a Go perspective but is
+// coherent with the architectural goals of this lexer.
 package lexer
 
 import "github.com/denisdubochevalier/monad"
