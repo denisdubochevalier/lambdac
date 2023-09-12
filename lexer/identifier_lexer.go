@@ -89,8 +89,8 @@ func mergeLiterals(existing monad.Maybe[Token], newChar rune) monad.Maybe[Token]
 	}
 
 	// If existing is Just, merge the literals.
-	if existingToken, ok := existing.(monad.Just[Token]); ok {
-		t := existingToken.Value()
+	if existing.Just() {
+		t := existing.Value()
 		t.literal = Literal(newChar) + t.Literal()
 		return monad.Some(t)
 	}

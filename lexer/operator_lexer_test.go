@@ -3,7 +3,6 @@ package lexer
 import (
 	"testing"
 
-	"github.com/denisdubochevalier/monad"
 	"github.com/stretchr/testify/require"
 )
 
@@ -37,11 +36,9 @@ func TestOperatorLexer(t *testing.T) {
 			maybeToken, newLexer := operatorLexer(lexer)
 
 			if testCase.expectedType == ILLEGAL {
-				_, ok := maybeToken.(monad.Nothing[Token])
-				is.True(ok)
+				is.True(maybeToken.Nothing())
 			} else {
-				_, ok := maybeToken.(monad.Just[Token])
-				is.True(ok)
+				is.True(maybeToken.Just())
 				token := maybeToken.Value()
 				is.Equal(testCase.expectedType, token.tokenType)
 				is.Equal(testCase.expectedLit, token.literal)

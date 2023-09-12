@@ -5,7 +5,6 @@ import (
 	"testing"
 	"unicode"
 
-	"github.com/denisdubochevalier/monad"
 	"github.com/leanovate/gopter"
 	"github.com/leanovate/gopter/gen"
 	"github.com/leanovate/gopter/prop"
@@ -38,12 +37,10 @@ func TestSpaceLexerExampleBased(t *testing.T) {
 			maybeToken, _ := spaceLexer(lexer)
 
 			if testCase.expectedType == ILLEGAL {
-				_, ok := maybeToken.(monad.Nothing[Token])
-				is.True(ok)
+				is.True(maybeToken.Nothing())
 			} else {
-				tokenJust, ok := maybeToken.(monad.Just[Token])
-				is.True(ok)
-				is.Equal(testCase.expectedType, tokenJust.Value().tokenType)
+				is.True(maybeToken.Just())
+				is.Equal(testCase.expectedType, maybeToken.Value().tokenType)
 			}
 		})
 	}
@@ -64,11 +61,9 @@ func TestSpaceLexerPropertyBased(t *testing.T) {
 			maybeToken, _ := spaceLexer(lexer)
 
 			if unicode.IsSpace(r) {
-				_, ok := maybeToken.(monad.Nothing[Token])
-				return ok
+				return maybeToken.Nothing()
 			} else if strings.ContainsAny(content, "\\.()|:-") {
-				tokenJust, ok := maybeToken.(monad.Just[Token])
-				return ok && tokenJust.Value().tokenType != ILLEGAL
+				return maybeToken.Just() && maybeToken.Value().tokenType != ILLEGAL
 			}
 			return true
 		},

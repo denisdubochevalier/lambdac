@@ -33,10 +33,9 @@ func TestFinalizeIdentifierTokenBasic(t *testing.T) {
 		// Test when content is not empty
 		l := New().WithContent("abc")
 		result, newLexer := finalizeIdentifierToken(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok) // Expecting Some(Token)
-		is.Equal(token.Value().Type(), IDENT)
+		is.True(result.Just()) // Expecting Some(Token)
+		is.Equal(result.Value().Type(), IDENT)
 
 		// test that newLexer is equal to l
 		assertEqualLexer(is, l, newLexer)
@@ -58,8 +57,7 @@ func TestFinalizeIdentifierTokenPropertyBased(t *testing.T) {
 				func(dummy bool) bool {
 					l := New().WithContent("")
 					result, _ := finalizeIdentifierToken(l)
-					_, ok := result.(monad.Nothing[Token])
-					return ok // Expecting None
+					return result.Nothing() // Expecting None
 				},
 				gen.Const(true), // Dummy generator
 			))
@@ -82,8 +80,7 @@ func TestFinalizeIdentifierTokenPropertyBased(t *testing.T) {
 					}
 					l := New().WithContent(str)
 					result, _ := finalizeIdentifierToken(l)
-					_, ok := result.(monad.Just[Token])
-					return ok // Expecting Some(Token)
+					return result.Just() // Expecting Some(Token)
 				},
 				gen.AlphaString(), // Generates non-empty strings
 			))
@@ -104,8 +101,7 @@ func TestFinalizeIdentifierTokenPropertyBased(t *testing.T) {
 				}
 				l := New().WithContent(str)
 				result, _ := finalizeIdentifierToken(l)
-				token, ok := result.(monad.Just[Token])
-				return ok && token.Value().Type() == IDENT
+				return result.Just() && result.Value().Type() == IDENT
 			},
 			gen.AlphaString(), // Generates non-empty strings
 		))
@@ -194,10 +190,9 @@ func TestIdLexRecursivelyBasic(t *testing.T) {
 
 		l := New().WithContent("abc123")
 		result, _ := idLexRecursively(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("abc123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("abc123"), result.Value().Literal())
 	})
 
 	t.Run("when content contains valid identifier with unicode", func(t *testing.T) {
@@ -206,10 +201,9 @@ func TestIdLexRecursivelyBasic(t *testing.T) {
 
 		l := New().WithContent("👋🏻abc123")
 		result, _ := idLexRecursively(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("👋🏻abc123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("👋🏻abc123"), result.Value().Literal())
 	})
 
 	t.Run("when content contains valid identifier with symbols", func(t *testing.T) {
@@ -218,10 +212,9 @@ func TestIdLexRecursivelyBasic(t *testing.T) {
 
 		l := New().WithContent("abc-123")
 		result, _ := idLexRecursively(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("abc-123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("abc-123"), result.Value().Literal())
 	})
 
 	t.Run(
@@ -232,10 +225,9 @@ func TestIdLexRecursivelyBasic(t *testing.T) {
 
 			l := New().WithContent("abc->123")
 			result, _ := idLexRecursively(l)
-			token, ok := result.(monad.Just[Token])
 
-			is.True(ok)
-			is.Equal(Literal("abc"), token.Value().Literal())
+			is.True(result.Just())
+			is.Equal(Literal("abc"), result.Value().Literal())
 		},
 	)
 
@@ -247,10 +239,9 @@ func TestIdLexRecursivelyBasic(t *testing.T) {
 
 			l := New().WithContent("abc|123")
 			result, _ := idLexRecursively(l)
-			token, ok := result.(monad.Just[Token])
 
-			is.True(ok)
-			is.Equal(Literal("abc"), token.Value().Literal())
+			is.True(result.Just())
+			is.Equal(Literal("abc"), result.Value().Literal())
 		},
 	)
 }
@@ -268,8 +259,7 @@ func TestIdLexRecursivelyPropertyBased(t *testing.T) {
 			func(dummy bool) bool {
 				l := New().WithContent("")
 				result, _ := idLexRecursively(l)
-				_, ok := result.(monad.Nothing[Token])
-				return ok
+				return result.Nothing()
 			},
 			gen.Const(true),
 		))
@@ -289,8 +279,7 @@ func TestIdLexRecursivelyPropertyBased(t *testing.T) {
 				}
 				l := New().WithContent(str)
 				result, _ := idLexRecursively(l)
-				token, ok := result.(monad.Just[Token])
-				return ok && token.Value().Literal() == Literal(str)
+				return result.Just() && result.Value().Literal() == Literal(str)
 			},
 			gen.AlphaString(),
 		))
@@ -340,9 +329,8 @@ func TestMergeLiterals(t *testing.T) {
 		existing := monad.None[Token]()
 		newChar := rune(0)
 		result := mergeLiterals(existing, newChar)
-		token, ok := result.(monad.Just[Token])
-		is.True(ok)
-		is.Equal(Literal(newChar), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal(newChar), result.Value().Literal())
 	})
 
 	// Test Case 2: When existing Token is non-empty and newChar is empty
@@ -353,9 +341,8 @@ func TestMergeLiterals(t *testing.T) {
 		existing := monad.Some(Token{literal: Literal("abc")})
 		newChar := rune(0)
 		result := mergeLiterals(existing, newChar)
-		token, ok := result.(monad.Just[Token])
-		is.True(ok)
-		is.Equal(Literal("abc"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("abc"), result.Value().Literal())
 	})
 
 	// Test Case 3: When existing Token is empty and newChar is non-empty
@@ -366,9 +353,8 @@ func TestMergeLiterals(t *testing.T) {
 		existing := monad.None[Token]()
 		newChar := 'a'
 		result := mergeLiterals(existing, newChar)
-		token, ok := result.(monad.Just[Token])
-		is.True(ok)
-		is.Equal(Literal(newChar), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal(newChar), result.Value().Literal())
 	})
 
 	// Test Case 4: When both existing Token and newChar are non-empty
@@ -379,9 +365,8 @@ func TestMergeLiterals(t *testing.T) {
 		existing := monad.Some(Token{literal: Literal("abc")})
 		newChar := 'a'
 		result := mergeLiterals(existing, newChar)
-		token, ok := result.(monad.Just[Token])
-		is.True(ok)
-		is.Equal(Literal("aabc"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("aabc"), result.Value().Literal())
 	})
 }
 
@@ -620,10 +605,9 @@ func TestIdentifierLexer(t *testing.T) {
 
 		l := New().WithContent("abc123")
 		result, _ := identifierLexer(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("abc123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("abc123"), result.Value().Literal())
 	})
 
 	t.Run("when content contains valid identifier with unicode", func(t *testing.T) {
@@ -632,10 +616,9 @@ func TestIdentifierLexer(t *testing.T) {
 
 		l := New().WithContent("👋🏻abc123")
 		result, _ := identifierLexer(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("👋🏻abc123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("👋🏻abc123"), result.Value().Literal())
 	})
 
 	t.Run("when content contains valid identifier with symbols", func(t *testing.T) {
@@ -644,10 +627,9 @@ func TestIdentifierLexer(t *testing.T) {
 
 		l := New().WithContent("abc-123")
 		result, _ := identifierLexer(l)
-		token, ok := result.(monad.Just[Token])
 
-		is.True(ok)
-		is.Equal(Literal("abc-123"), token.Value().Literal())
+		is.True(result.Just())
+		is.Equal(Literal("abc-123"), result.Value().Literal())
 	})
 
 	t.Run(
@@ -658,10 +640,9 @@ func TestIdentifierLexer(t *testing.T) {
 
 			l := New().WithContent("abc->123")
 			result, _ := identifierLexer(l)
-			token, ok := result.(monad.Just[Token])
 
-			is.True(ok)
-			is.Equal(Literal("abc"), token.Value().Literal())
+			is.True(result.Just())
+			is.Equal(Literal("abc"), result.Value().Literal())
 		},
 	)
 
@@ -673,10 +654,9 @@ func TestIdentifierLexer(t *testing.T) {
 
 			l := New().WithContent("abc|123")
 			result, _ := identifierLexer(l)
-			token, ok := result.(monad.Just[Token])
 
-			is.True(ok)
-			is.Equal(Literal("abc"), token.Value().Literal())
+			is.True(result.Just())
+			is.Equal(Literal("abc"), result.Value().Literal())
 		},
 	)
 }
