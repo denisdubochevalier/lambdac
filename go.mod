@@ -4,7 +4,7 @@ go 1.21.0
 
 require (
 	github.com/db47h/ragel/v2 v2.2.4
-	github.com/denisdubochevalier/monad v0.0.12
+	github.com/denisdubochevalier/monad v0.0.13
 	github.com/leanovate/gopter v0.2.9
 	github.com/stretchr/testify v1.8.4
 )
