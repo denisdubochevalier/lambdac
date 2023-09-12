@@ -22,7 +22,7 @@ func Example() {
 	for {
 		var token monad.Maybe[lexer.Token]
 		token, l = l.Next()
-		if _, ok := token.(monad.Nothing[lexer.Token]); ok {
+		if token.IsNothing() {
 			continue
 		}
 		fmt.Printf(

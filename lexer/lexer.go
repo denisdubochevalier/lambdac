@@ -62,7 +62,7 @@
 //	for {
 //	  token := monad.None[lexer.Token]()
 //	  token, l = l.Next()
-//	  if _, ok := token.(monad.Nothing[lexer.Token]); ok {
+//	  if token.isNothing() {
 //	    continue
 //	  }
 //	  if token.Value().Type() == lexer.EOF {
