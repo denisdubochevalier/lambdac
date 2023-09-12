@@ -15,21 +15,26 @@
 //
 // The lexer formalizes the following language syntax through tokenization:
 //
-//	Term       ::= Identifier | "(" Term ")" | "\" Identifier "." Term
+//	Term       ::= Identifier | "(" Term ")" | "\" Identifier "." Term | Identifier "|" String |
 //	Expression ::= Term { Term }
 //
 // Tokens:
 //
 // The following token categories are defined for the lexer:
 //
-//   - IDENTIFIER:  Any sequence of Unicode graphical characters, excluding
+//   - ILLEGAL:     Any unrecognized sequence of characters.
+//   - EOF:         End of the file.
+//   - EOL:         End of the line.
+//   - IDENT:       Any sequence of Unicode graphical characters, excluding
 //     specific reserved characters.
+//   - STRING       A string enclosed betwen "
 //   - LAMBDA:      The backslash ("\") symbol representing the lambda function.
 //   - DOT:         The dot (".") symbol used in lambda abstractions.
 //   - LPAREN:      The left parenthesis ("(") symbol.
 //   - RPAREN:      The right parenthesis (")") symbol.
-//   - ILLEGAL:     Any unrecognized sequence of characters.
-//   - EOF:         End of the file.
+//   - MODULE:      The module loading operator ("|").
+//   - NSDEREF:     The namespace dereferenciation operator ("->").
+//   - ASSIGN:      The assignation operator (":=").
 //
 // Additionally, the lexer supports special constructs like strings with escape
 // sequences, composite operators like ":=" and "->", and line breaks.
@@ -47,15 +52,13 @@
 // Usage:
 //
 // Initialize a Lexer with the input source code, then iteratively call its
-// NextToken method to retrieve the tokens one by one until an EOF token is
+// Next method to retrieve the tokens one by one until an EOF token is
 // returned.
 //
-// Advanced Usage:
-//
 // Due to its functional nature, this lexer may require a slightly different
-// usage pattern, particularly when it comes to state management and functional
-// composition. Users familiar with functional programming paradigms will find
-// it more intuitive.
+// usage pattern than the usual ones, particularly when it comes to state
+// management and functional composition. Users familiar with functional
+// programming paradigms will find it more intuitive.
 //
 // Example:
 //
