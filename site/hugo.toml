@@ -35,7 +35,7 @@ url = "https://github.com/denisdubochevalier/lambdac"
 
 [[params.socialLinks]]
 icon = "fa-solid fa-rss"
-title = Personal Blog
+title = "Personal Blog"
 url = "https://denischevalier.fr"
 
 [[params.socialLinks]]
