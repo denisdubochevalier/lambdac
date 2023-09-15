@@ -41,7 +41,7 @@ url = "https://denischevalier.fr"
 [[params.socialLinks]]
 icon = "fa-solid fa-envelope"
 title = "Email"
-url = "mailto:denisdubochevalier+lambdac@gmail.com"
+url = "mailto:contact@denischevalier.fr"
 
 [[params.socialLinks]]
 icon = "ai ai-orcid"
