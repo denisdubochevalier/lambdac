@@ -2,7 +2,7 @@ baseURL = 'https://localhost:1313/'
 languageCode = 'en-us'
 title = 'λ.c'
 author = 'Denis Chevalier'
-copyright = '© 2023 [Denis Chevalier](https://github.com/denisdubochevalier)'
+copyright = '© 2023 [Denis Chevalier](https://denischevalier.fr)'
 paginate = 3
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -32,6 +32,11 @@ logo = "https://github.com/denisdubochevalier/lambdac/raw/main/lambdac_logo_whit
 icon = "fa-brands fa-github"
 title = "GitHub"
 url = "https://github.com/denisdubochevalier/lambdac"
+
+[[params.socialLinks]]
+icon = "fa-solid fa-rss"
+title = Personal Blog
+url = "https://denischevalier.fr"
 
 [[params.socialLinks]]
 icon = "fa-solid fa-envelope"
