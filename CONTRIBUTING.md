@@ -61,7 +61,7 @@ sections.
 ## Instruments of Enforcement
 
 Incidents violating the sanctity of this code may be reported to the coterie of
-λ.c maintainers at <denisdubochevalier+lambdac@gmail.com>. All entreaties will
+λ.c maintainers at <contact@denischevalier.fr>. All entreaties will
 be investigated with utmost impartiality and confidentiality.
 
 Project overseers who eschew the enforcement of this Code of Civility may incur
