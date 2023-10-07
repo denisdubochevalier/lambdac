@@ -27,4 +27,6 @@ import "github.com/denisdubochevalier/monad"
 //     an error detailing what went wrong.
 //   - An updated parser state that is passed on to the next parserFunc for
 //     further processing.
+//
+//nolint:unused
 type parserFunc func(State) (monad.Result[ASTNode, error], State)
