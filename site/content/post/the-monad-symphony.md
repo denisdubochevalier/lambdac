@@ -134,7 +134,7 @@ for {
 // Create an AST from the tokens list
 ast, err := parser.Parse(tokens)
 
-// Do something with the token
+// Do something with the AST
 ```
 
 Here, the lexer reliably tokenizes the input, providing a robust foundation for
