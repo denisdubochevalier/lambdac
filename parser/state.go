@@ -19,7 +19,7 @@ import "github.com/denisdubochevalier/lambdac/lexer"
 type State struct {
 	tokens   []lexer.Token
 	position int
-	astNode  ASTNode
+	astRoot  ASTNode
 }
 
 // NewState is a constructor function for initializing the State structure that
@@ -29,7 +29,7 @@ type State struct {
 // The initialized State comprises:
 //   - A list of lexer tokens (`tokens`) that are to be parsed.
 //   - The current position (`position`) within that list, initially set to 0.
-//   - An empty AST node (`astNode`), which serves as the starting point for
+//   - An empty AST node (`astRoot`), which serves as the starting point for
 //     building the Abstract Syntax Tree (AST) during the parsing process.
 //
 // By centralizing the construction of the initial parser state, NewState
@@ -46,7 +46,7 @@ func NewState(tokens []lexer.Token) State {
 	return State{
 		tokens:   tokens,
 		position: 0,
-		astNode:  ASTNode{},
+		astRoot:  ASTNode{},
 	}
 }
 
@@ -85,7 +85,7 @@ func (s State) advance() State {
 // Returns:
 // - A new State instance containing the updated AST node.
 func (s State) withAST(ast ASTNode) State {
-	s.astNode = ast
+	s.astRoot = ast
 	return s
 }
 
@@ -130,7 +130,7 @@ func (s State) currentToken() lexer.Token {
 
 // ast is a method on the State struct responsible for retrieving the current
 // Abstract Syntax Tree (AST) node being operated upon or constructed by the
-// parser. This function serves as an encapsulated getter for the 'astNode'
+// parser. This function serves as an encapsulated getter for the 'astRoot'
 // field of the State struct, adhering to the principle of information hiding.
 //
 // The method is chiefly implemented to isolate direct field access, thereby
@@ -142,5 +142,5 @@ func (s State) currentToken() lexer.Token {
 //   - ASTNode representing the current node in the abstract syntax tree within
 //     the parser state.
 func (s State) ast() ASTNode {
-	return s.astNode
+	return s.astRoot
 }
