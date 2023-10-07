@@ -132,8 +132,12 @@ for {
 }
 
 // Create an AST from the tokens list
-ast, err := parser.Parse(tokens)
+result := parser.Parse(tokens)
+if result.Failure() {
+    // Handle the failure
+}
 
+AST := result.Value()
 // Do something with the AST
 ```
 
