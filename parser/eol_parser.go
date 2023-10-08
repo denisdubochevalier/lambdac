@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	"github.com/denisdubochevalier/monad"
+
+	"github.com/denisdubochevalier/lambdac/lexer"
 )
 
 // eolParser is a specialized parser function focused on handling end-of-line
@@ -35,7 +37,9 @@ func eolParser(state State) (monad.Result[ASTNode, error], State) {
 		), state
 	}
 
-	return monad.Fail[ASTNode, error](
-		fmt.Errorf("not implemented"),
-	), state
+	if state.currentToken().Type() == lexer.EOL {
+		return stringParser(state.advance())
+	}
+
+	return identParser(state)
 }
