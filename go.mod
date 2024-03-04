@@ -6,7 +6,7 @@ require (
 	github.com/db47h/ragel/v2 v2.2.4
 	github.com/denisdubochevalier/monad v0.0.14
 	github.com/leanovate/gopter v0.2.9
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
